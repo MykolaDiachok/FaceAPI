@@ -1,4 +1,4 @@
-# Face Recognition System for Employee and Customer Tracking
+# DEMO Face Recognition System for Employee and Customer Tracking
 
 ## Overview
 This project implements a facial recognition system designed to track employees and customers passing through cameras in a retail environment. The system captures facial images or video frames, processes them to extract facial features, and identifies the individuals based on pre-stored facial vectors. The application allows for efficient monitoring of employee and customer activity, providing real-time data and statistics.
