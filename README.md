@@ -15,7 +15,7 @@ The project uses the following tables:
 - **Persons**: Stores information about persons.
 - **FaceMetadata**: Stores metadata related to captured faces, including gender, age, and image path.
 - **FaceVectors**: Stores vectorized face data for persons, used for recognition.
-- **FaceRecognitionEvents**: Logs each recognition event with a timestamp, camera ID, and type of recognized individual (employee or customer).
+- **FaceRecognitionEvents**: Logs each recognition event with a timestamp, camera ID, and type of recognized individual.
 - **Cameras**: Stores information about each camera, including camera ID and location.
 
 ## GDPR Compliance
