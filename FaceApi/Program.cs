@@ -1,4 +1,3 @@
-using FaceApi;
 using FaceApi.DB;
 using FaceApi.Services;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +25,7 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddSwaggerGenNewtonsoftSupport();
 
 builder.Services.AddDbContext<FaceDbContext>(options =>
-    options.UseSqlite("Data Source=FaceDatabase.db"));
+    options.UseSqlite("Data Source=databases/FaceDatabase.db"));
 
 // Register the face detection service
 builder.Services.AddScoped<IUsbCameraService, UsbCameraService>();

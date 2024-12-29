@@ -29,7 +29,7 @@ public class FaceController : ControllerBase
     }
 
     [HttpPost("capture-from-camera")]
-    public IActionResult CaptureFaceDataFromCamera([FromForm] string employeeId, [FromForm] Gender gender,
+    public IActionResult CaptureFaceDataFromCamera([FromForm] string individualId, [FromForm] Gender gender,
         [FromForm] int age)
     {
         var frame = _usbCameraService.CaptureFrame();
@@ -38,13 +38,13 @@ public class FaceController : ControllerBase
 
         try
         {
-            var fileName = $"{employeeId}_{gender}_{age}.jpg";
+            var fileName = $"{individualId}_{gender}_{age}.jpg";
             var filePath = _fileService.SaveFrame(frame, fileName, _dataFolder);
 
 
             var metadata = new FaceMetadata
             {
-                EmployeeId = employeeId,
+                IndividualId = individualId,
                 Gender = gender,
                 Age = age,
                 ImagePath = fileName
@@ -62,7 +62,7 @@ public class FaceController : ControllerBase
     [HttpPost("capture-from-file")]
     [Consumes("multipart/form-data")]
     [Produces("application/json")]
-    public IActionResult CaptureFaceDataFromFile([FromForm] string employeeId, [FromForm] Gender gender,
+    public IActionResult CaptureFaceDataFromFile([FromForm] string individualId, [FromForm] Gender gender,
         [FromForm] int age, IFormFile? imageFile)
     {
         if (imageFile == null || imageFile.Length == 0)
@@ -78,7 +78,7 @@ public class FaceController : ControllerBase
 
             var metadata = new FaceMetadata
             {
-                EmployeeId = employeeId,
+                IndividualId = individualId,
                 Gender = gender,
                 Age = age,
                 ImagePath = imageFile.FileName

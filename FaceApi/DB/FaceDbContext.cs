@@ -7,9 +7,7 @@ public class FaceDbContext(DbContextOptions<FaceDbContext> options) : DbContext(
 {
     
     
-    public DbSet<Employee> Employees { get; set; }
-    
-    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Person> Persons { get; set; }
     
     public DbSet<Camera> Cameras { get; set; }
     
@@ -25,28 +23,18 @@ public class FaceDbContext(DbContextOptions<FaceDbContext> options) : DbContext(
             .Property(f => f.Gender)
             .HasConversion<string>(); // Store enum as string
         
-        modelBuilder.Entity<FaceMetadata>()
-            .HasOne(f => f.Employee)
-            .WithMany()
-            .HasForeignKey(f => f.EmployeeId)
-            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<FaceMetadata>()
-            .HasOne(f => f.Customer)
+            .HasOne(f => f.Person)
             .WithMany()
-            .HasForeignKey(f => f.CustomerId)
+            .HasForeignKey(f => f.Id)
             .OnDelete(DeleteBehavior.Restrict);
+        
 
         modelBuilder.Entity<FaceVector>()
-            .HasOne(f => f.Employee)
+            .HasOne(f => f.Person)
             .WithMany()
-            .HasForeignKey(f => f.EmployeeId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<FaceVector>()
-            .HasOne(f => f.Customer)
-            .WithMany()
-            .HasForeignKey(f => f.CustomerId)
+            .HasForeignKey(f => f.Id)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }
