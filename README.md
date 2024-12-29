@@ -38,5 +38,5 @@ The project uses the following tables:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/face-recognition-system.git
-   cd face-recognition-system
+   git clone https://github.com/MykolaDiachok/FaceAPI.git
+   cd FaceAPI
