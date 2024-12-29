@@ -12,9 +12,9 @@ This project provides a demo API for facial recognition. The API is designed for
 ## Database Structure
 The project uses the following tables:
 
-- **Persons**: Stores information about customers.
+- **Persons**: Stores information about persons.
 - **FaceMetadata**: Stores metadata related to captured faces, including gender, age, and image path.
-- **FaceVectors**: Stores vectorized face data for employees and customers, used for recognition.
+- **FaceVectors**: Stores vectorized face data for persons, used for recognition.
 - **FaceRecognitionEvents**: Logs each recognition event with a timestamp, camera ID, and type of recognized individual (employee or customer).
 - **Cameras**: Stores information about each camera, including camera ID and location.
 
